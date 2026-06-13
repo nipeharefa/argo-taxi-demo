@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: valkey-metrics
+  namespace: database
+  labels:
+    app: valkey
+spec:
+  type: ClusterIP
+  selector:
+    app: valkey
+  ports:
+    - name: metrics
+      port: 9121
+      targetPort: 9121
